@@ -1,0 +1,9 @@
+version: '2'
+services:
+
+  Cache_Server:
+    image: memcached:1.4.36
+    ports:
+      - 11211:11211
+    volumes:
+      - .:/var/lib/MyVolume
