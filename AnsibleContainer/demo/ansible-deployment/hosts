@@ -1,0 +1,1 @@
+AC_Cache_Server ansible_host="ordereddict([(u'from', u'memcached:1.4.36'), (u'ports', ['11211:11211']), (u'volumes', ['.:/var/lib/MyVolume']), ('defaults', ordereddict([]))])" ansible_python_interpreter="/_usr/bin/python"
