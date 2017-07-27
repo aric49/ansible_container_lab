@@ -76,7 +76,8 @@ Vagrant.configure("2") do |config|
     apt-get install -y docker.io git build-essential python2.7 python-simplejson python-pip openssl libssl-dev
     pip install --upgrade pip
     pip install ansible==2.3.0
-    #pip install ansible-container[docker,k8s,openshift]==0.9.1
+    #pip install ansible-container[docker,k8s,openshift]#==0.9.1
+    pip install ansible-container docker
     curl -fsSL https://github.com/docker/compose/releases/download/1.13.0/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose
     chmod +x /usr/local/bin/docker-compose
     usermod -aG docker ubuntu
