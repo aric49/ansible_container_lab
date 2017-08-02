@@ -1,0 +1,16 @@
+version: '2'
+settings:
+  conductor_base: centos:7
+
+services:
+  webserver:
+    roles:
+      - role: ansible.nginx-container
+        STATIC_ROOT: /MySite
+    ports:
+      - "80:8000"
+
+registries:
+  docker:
+    url: https://index.docker.io/v1/
+    namespace: username
