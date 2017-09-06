@@ -1,0 +1,12 @@
+version: "2"
+settings:
+  conductor_base: ubuntu:16.04
+  roles_path:
+    - ./roles/
+
+services:
+  mysql_database_container:
+    roles:
+      - role: mariadb_role
+
+registries: {}

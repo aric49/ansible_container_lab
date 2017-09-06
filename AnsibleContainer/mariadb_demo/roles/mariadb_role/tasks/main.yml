@@ -1,0 +1,66 @@
+---
+- name: Install Base Packages
+  apt:
+    name: "{{ item }}"
+    state: present
+    update_cache: true
+  with_items:
+    - "ca-certificates"
+    - "apt-utils"
+
+- name: Install dumb-init for container init system
+  get_url:
+    url: https://github.com/Yelp/dumb-init/releases/download/v1.2.0/dumb-init_1.2.0_amd64
+    dest: /usr/bin/dumb-init
+    owner: root
+    group: root
+    mode: 0775
+
+- name: Create MySQL Group
+  group:
+    name: mysql
+    state: present
+
+- name: Create MySQL Users
+  user:
+    name: mysql
+    state: present
+    groups: mysql
+    append: true
+
+
+- name: Install MySQL Server
+  apt:
+    name: mariadb-server
+    state: present
+    update_cache: true
+
+- name: Change Permissions on directories
+  file:
+    path: "{{ item }}"
+    owner: mysql
+    group: mysql
+    mode: 0777
+    state: directory
+    recurse: true
+  with_items:
+    - "/etc/mysql/"
+    - "/var/lib/mysql/"
+    - "/var/run/mysqld/"
+
+- name: remote my.cnf
+  file:
+    path: /etc/mysql/my.cnf
+    state: absent
+
+- name: Install MySQL Configuration File
+  template:
+    src: my.cnf.j2
+    dest: /etc/mysql/my.cnf
+    owner: mysql
+    group: mysql
+
+- name: Initialize Database
+  include: initialize_database.yml
+  when:
+    - initialize_database  == true
