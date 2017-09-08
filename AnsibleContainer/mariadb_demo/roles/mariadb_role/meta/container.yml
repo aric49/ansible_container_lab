@@ -2,7 +2,9 @@
 from: ubuntu:16.04
 ports:
   - "3306:3306"
-command: ['/usr/bin/dumb-init', '/usr/sbin/mysqld']
+
+entrypoint: ['/usr/bin/dumb-init']
+command: ['/usr/sbin/mysqld']
 # environment:
 #   DEBIAN_FRONTEND: noninteractive
 # For example:
