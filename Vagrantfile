@@ -80,11 +80,13 @@ Vagrant.configure("2") do |config|
    $(lsb_release -cs) \
    stable"
     apt-get update
-    apt-get install -y docker-ce=17.03.0~ce-0~ubuntu-xenial
+    #TODO: Make sure version of docker line up with Docker-Compose
+    apt-get install -y docker-ce=17.06.2~ce-0~ubuntu
+    apt-get install -y docker-compose=1.8.0-2~16.04.1
     pip install --upgrade pip
-    pip install docker-compose==1.13.0
-    pip install ansible==2.3.0
-    pip install ansible-container[docker,k8s,openshift]==0.9.1
+    #pip install docker-compose==1.16.0
+    pip install ansible==2.3.2
+    pip install ansible-container[docker,k8s,openshift]==0.9.2
     usermod -aG docker ubuntu
   SHELL
 end

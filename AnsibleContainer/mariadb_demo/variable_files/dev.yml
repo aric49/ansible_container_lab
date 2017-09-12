@@ -1,0 +1,7 @@
+---
+# Development Defaults for MySQL role
+initialize_database: true
+default_user: "yeoman_rand"
+default_password: "starfleet"
+databases:
+  - "starfleet_data"
