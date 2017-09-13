@@ -9,4 +9,7 @@ services:
     roles:
       - role: mariadb_role
 
-registries: {}
+registries:
+  docker:
+    url: https://index.docker.io/v1/
+    namespace: aric49
