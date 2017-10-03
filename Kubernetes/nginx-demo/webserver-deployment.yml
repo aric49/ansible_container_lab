@@ -1,0 +1,18 @@
+---
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: webserver-deployment
+spec:
+  replicas: 4
+  template:
+    metadata:
+      labels:
+        app: http-webserver
+
+    spec:
+      containers:
+        - name: webserver-container
+          image: docker.io/username/nginx_demo-webserver
+          ports:
+            - containerPort: 8000

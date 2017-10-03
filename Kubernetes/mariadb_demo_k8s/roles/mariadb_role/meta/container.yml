@@ -1,0 +1,19 @@
+# Add your Ansible Container service definitions here.
+from: ubuntu:16.04
+ports:
+  - "3306:3306"
+
+entrypoint: ['/usr/bin/dumb-init']
+command: ['/usr/sbin/mysqld']
+# environment:
+#   DEBIAN_FRONTEND: noninteractive
+# For example:
+  #
+  # web:
+  #   image: ubuntu:trusty
+  #   ports:
+  #     - "80:80"
+  #   command: ['/usr/bin/dumb-init', '/usr/sbin/apache2ctl', '-D', 'FOREGROUND']
+  #   dev_overrides:
+  #     environment:
+  #       - "DEBUG=1"

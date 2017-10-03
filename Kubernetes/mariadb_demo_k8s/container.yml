@@ -1,0 +1,19 @@
+version: "2"
+settings:
+  conductor_base: ubuntu:16.04
+  project_name: mariadb-k8s
+  roles_path:
+    - ./roles/
+  k8s_namespace:
+    name: database
+  k8s_auth:
+    config_file: /home/ubuntu/.kube/config
+services:
+  mariadb-database:
+    roles:
+      - role: mariadb_role
+
+registries:
+  docker:
+    url: https://index.docker.io/v1/
+    namespace: aric49

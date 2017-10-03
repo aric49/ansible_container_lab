@@ -1,0 +1,10 @@
+---
+# System Test Defaults for MySQL role
+initialize_database: true
+default_user: "spock"
+default_password: "theBridge"
+databases:
+  - "planet_vulcan"
+  - "federation_data"
+  - "shuttle_crafts"
+  - "ship_ordinances"
