@@ -1,3 +1,4 @@
 BookNotes/
 *.log
 ansible-deployment/
+.vagrant/

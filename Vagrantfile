@@ -73,7 +73,6 @@ Vagrant.configure("2") do |config|
   #TODO: Version Packages
   config.vm.provision "shell", inline: <<-SHELL
     apt-get update
-    #TODO: experiment with uninstalling openssl,
     apt-get install -y git build-essential python2.7 python-simplejson python-pip openssl libssl-dev ca-certificates apt-transport-https curl
     curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
     add-apt-repository -y \
@@ -82,10 +81,10 @@ Vagrant.configure("2") do |config|
    stable"
     apt-get update
     apt-get install -y docker-ce=17.06.2~ce-0~ubuntu
-    #apt-get install -y docker-compose=1.8.0-2~16.04.1
     pip install --upgrade pip
     pip install docker-compose==1.13.0
     pip install ansible==2.3.2
+    pip install pyopenssl==17.5.0
     pip install ansible-container[docker,k8s,openshift]==0.9.2
     usermod -aG docker ubuntu
     #Un-Comment this section to Install the Google Cloud SDK:
