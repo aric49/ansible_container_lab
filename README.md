@@ -14,7 +14,7 @@ This `README` file is broken up into two primary sections:
 * **Errata**: Lists any fixes or corrections to content in the published book
 
 ## Updates
-None Yet :-)
+**1) Vagrant Box now uses `vagrant` user instead of `ubuntu`:** The most recent versions of Vagrant and the Ubuntu 16.04 vagrant box by default leverage the user `vagrant` instead of `ubuntu`. Most of the examples in the box show the user logged in `ubuntu` for many of the terminal exercises. Unfortunately, the `vagrant` user does not have privileges to access the Docker daemon as `ubuntu` does, so this may have led to `permission denied` errors during the exection of `ansible-container` or `docker` commands.   To remedy this, I have added steps in the Vagrantfile to grant `vagrant` the same permissions as `ubuntu`.  Alternatively, you could just `su` to the `ubuntu` user after spinning up the VM. Feel free to reach out if you have any concerns regarding this change.
 
 ## Errata
 **1) Fixing the `AnsibleContainerException: Expecting --config-path to be a path to a file, not a directory` Error:**  Due to a bug with the 0.92 release of Ansible Container, you may run into the following error message while working through some Ansible Container exercises in the book.  Primarily, the ones which involve `ansible-container push` or `ansible-container deploy` commands:

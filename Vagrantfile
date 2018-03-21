@@ -87,6 +87,7 @@ Vagrant.configure("2") do |config|
     pip install pyopenssl==17.5.0
     pip install ansible-container[docker,k8s,openshift]==0.9.2
     usermod -aG docker ubuntu
+    usermod -aG docker vagrant
     #Un-Comment this section to Install the Google Cloud SDK:
     # export CLOUD_SDK_REPO="cloud-sdk-$(lsb_release -c -s)"
     # echo "deb http://packages.cloud.google.com/apt $CLOUD_SDK_REPO main" | sudo tee -a /etc/apt/sources.list.d/google-cloud-sdk.list
